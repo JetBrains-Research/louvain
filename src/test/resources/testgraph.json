@@ -1,0 +1,250 @@
+{
+    "nodes": [
+        {
+            "id": "id0",
+            "name": "Rodney Konopelski II"
+        },
+        {
+            "id": "id1",
+            "name": "Jillian Adams II"
+        },
+        {
+            "id": "id2",
+            "name": "Elvin Bashirian"
+        },
+        {
+            "id": "id3",
+            "name": "Evita DuBuque PhD"
+        },
+        {
+            "id": "id4",
+            "name": "Edsger Wybe Dijkstra PhD"
+        }
+    ],
+    "links": [
+        {
+            "source": "id0",
+            "target": "id2",
+            "interactionIndices": [
+                1,
+                3
+            ],
+            "size": 2
+        },
+        {
+            "source": "id0",
+            "target": "id4",
+            "interactionIndices": [
+                2
+            ],
+            "size": 1
+        },
+        {
+            "source": "id0",
+            "target": "id1",
+            "interactionIndices": [
+                3
+            ],
+            "size": 1
+        },
+        {
+            "source": "id1",
+            "target": "id3",
+            "interactionIndices": [
+                0,
+                4,
+                5
+            ],
+            "size": 3
+        },
+        {
+            "source": "id1",
+            "target": "id0",
+            "interactionIndices": [
+                3
+            ],
+            "size": 1
+        },
+        {
+            "source": "id1",
+            "target": "id2",
+            "interactionIndices": [
+                3,
+                4
+            ],
+            "size": 2
+        },
+        {
+            "source": "id2",
+            "target": "id0",
+            "interactionIndices": [
+                1,
+                3
+            ],
+            "size": 2
+        },
+        {
+            "source": "id2",
+            "target": "id1",
+            "interactionIndices": [
+                3,
+                4
+            ],
+            "size": 2
+        },
+        {
+            "source": "id2",
+            "target": "id3",
+            "interactionIndices": [
+                4
+            ],
+            "size": 1
+        },
+        {
+            "source": "id3",
+            "target": "id1",
+            "interactionIndices": [
+                0,
+                4,
+                5
+            ],
+            "size": 3
+        },
+        {
+            "source": "id3",
+            "target": "id2",
+            "interactionIndices": [
+                4
+            ],
+            "size": 1
+        },
+        {
+            "source": "id4",
+            "target": "id0",
+            "interactionIndices": [
+                2
+            ],
+            "size": 1
+        }
+    ],
+    "interactions": [
+        {
+            "type": "project",
+            "info": "BETA",
+            "from": "2021-06-06",
+            "to": "2021-07-06",
+            "size": 2
+        },
+        {
+            "type": "project",
+            "info": "Legoscript",
+            "from": "2021-06-21",
+            "to": "2021-07-06",
+            "size": 2
+        },
+        {
+            "type": "project",
+            "info": "Very Important Graph Project",
+            "from": "2021-06-22",
+            "to": "2021-07-05",
+            "size": 2
+        },
+        {
+            "type": "meeting",
+            "info": "Meeting 1",
+            "from": "2021-07-06",
+            "to": "2021-07-06",
+            "size": 3
+        },
+        {
+            "type": "meeting",
+            "info": "Meeting 2",
+            "from": "2021-07-06",
+            "to": "2021-07-06",
+            "size": 3
+        },
+        {
+            "type": "codereview",
+            "info": "CodeReview",
+            "from": "2021-07-06",
+            "to": "2021-07-06",
+            "size": 2
+        }
+    ],
+    "teams": [
+        {
+            "name": "Valencia CF",
+            "parentTeam": "Valencia CF"
+        },
+        {
+            "name": "Manchester United",
+            "parentTeam": "Valencia CF"
+        }
+    ],
+    "teamMemberships": [
+        {
+            "profileId": "id0",
+            "teamName": "Valencia CF",
+            "role": "leopard"
+        },
+        {
+            "profileId": "id1",
+            "teamName": "Valencia CF",
+            "role": "tortoise"
+        },
+        {
+            "profileId": "id2",
+            "teamName": "Valencia CF",
+            "role": "reindeer"
+        },
+        {
+            "profileId": "id3",
+            "teamName": "Valencia CF",
+            "role": "swan"
+        },
+        {
+            "profileId": "id1",
+            "teamName": "Manchester United",
+            "role": "buffalo"
+        },
+        {
+            "profileId": "id3",
+            "teamName": "Manchester United",
+            "role": "kangaroo"
+        }
+    ],
+    "projects": [
+        {
+            "name": "BETA",
+            "teams": [
+                "Valencia CF",
+                "Manchester United"
+            ],
+            "memberIds": [
+                "id1",
+                "id3"
+            ]
+        },
+        {
+            "name": "Legoscript",
+            "teams": [
+                "Valencia CF"
+            ],
+            "memberIds": [
+                "id0",
+                "id2"
+            ]
+        },
+        {
+            "name": "Very Important Graph Project",
+            "teams": [
+                "Valencia CF"
+            ],
+            "memberIds": [
+                "id0",
+                "id4"
+            ]
+        }
+    ],
+    "aggregated": true
+}
