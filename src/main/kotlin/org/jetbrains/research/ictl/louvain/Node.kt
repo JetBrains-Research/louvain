@@ -9,7 +9,7 @@ internal class InternalLink(
 )
 
 /**
- * @param community Obvious, duh
+ * @param community Index of a community to which the node has been assigned.
  * @param selfLoopsWeight Weight of all links that start and end at originalNodes making up this node * 2.
  */
 internal sealed class BaseNode(

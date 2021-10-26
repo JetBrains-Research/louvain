@@ -1,7 +1,5 @@
 package org.jetbrains.research.ictl.louvain
 
-// import mu.KotlinLogging
-
 /**
  * Class that encapsulates the Louvain algorithm.
  */
@@ -12,10 +10,6 @@ internal class Louvain(
     private var nodes: List<Node> = emptyList()
     private var graphWeight: Double
     private val originalNodesNumber: Int
-
-    companion object {
-        // private val logger = KotlinLogging.logger("Louvain")
-    }
 
     init {
         buildNodesFromLinks()
@@ -131,11 +125,8 @@ internal class Louvain(
         } while (communities.size != from)
         communities = bestCommunities
         nodes = bestNodes
-        // logger.info { "Achieved $bestModularity modularity with ${communities.size} communities for $originalNodesNumber nodes" }
         if (communities.size != 1 && depth != 0) {
-            // logger.info { "Refine at depth $depth" }
             refine(depth)
-            // logger.info { "Refine result: Achieved $bestModularity modularity with ${communities.size} communities for $originalNodesNumber nodes" }
         }
     }
 

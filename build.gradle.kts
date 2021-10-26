@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "1.5.30"
     application
     kotlin("plugin.serialization") version "1.5.30"
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
 }
 
 group = "org.jetbrains.research.ictl"
