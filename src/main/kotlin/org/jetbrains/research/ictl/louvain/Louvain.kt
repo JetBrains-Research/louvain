@@ -25,24 +25,25 @@ internal class Louvain(
     }
 
     private fun buildNodesFromLinks() {
-        val nodeIndices = links.flatMap { listOf(it.source, it.target) }.distinct().sorted()
+        val nodeIndices = links.flatMap { listOf(it.source(), it.target()) }.distinct().sorted()
         val mutableNodes = nodeIndices
             .withIndex()
             .associateBy({ it.value }, { MutableNode(it.index, setOf(it.value)) })
         links.forEach { link ->
-            if (link.source == link.target) {
-                mutableNodes[link.source]!!.selfLoopsWeight += 2 * link.weight
+            if (link.source() == link.target()) {
+                mutableNodes[link.source()]!!.selfLoopsWeight += 2 * link.weight()
             } else {
-                val newSource = mutableNodes[link.source]!!.community
-                val newTarget = mutableNodes[link.target]!!.community
-                mutableNodes[link.source]!!.incidentLinks.add(InternalLink(newTarget, link.weight))
-                mutableNodes[link.target]!!.incidentLinks.add(InternalLink(newSource, link.weight))
+                val newSource = mutableNodes[link.source()]!!.community
+                val newTarget = mutableNodes[link.target()]!!.community
+                mutableNodes[link.source()]!!.incidentLinks.add(InternalLink(newTarget, link.weight()))
+                mutableNodes[link.target()]!!.incidentLinks.add(InternalLink(newSource, link.weight()))
             }
         }
         nodes = mutableNodes.values.map { it.toNode() }
     }
 
-    private fun computeGraphWeight() = nodes.sumOf { n -> n.incidentLinks.sumOf { l -> l.weight } + n.selfLoopsWeight } / 2
+    private fun computeGraphWeight() =
+        nodes.sumOf { n -> n.incidentLinks.sumOf { l -> l.weight } + n.selfLoopsWeight } / 2
 
     private fun aggregateCommunities() {
         // re-index communities in nodes
@@ -53,7 +54,8 @@ internal class Louvain(
         }
 
         val newNodes = communities.values.map { it.toLouvainNode(nodes) }
-        val newCommunities = newNodes.withIndex().associateBy({ it.index }, { Community(it.index, nodes) }).toMutableMap()
+        val newCommunities =
+            newNodes.withIndex().associateBy({ it.index }, { Community(it.index, nodes) }).toMutableMap()
 
         nodes = newNodes
         communities = newCommunities
@@ -182,8 +184,8 @@ internal class Louvain(
         var communitiesMap = resultingCommunities()
         var resultingCommunitiesNumber = communitiesMap.values.distinct().size
         links
-            .filter { communitiesMap[it.source] == communitiesMap[it.target] }
-            .groupBy({ communitiesMap[it.source]!! }, { it })
+            .filter { communitiesMap[it.source()] == communitiesMap[it.target()] }
+            .groupBy({ communitiesMap[it.source()]!! }, { it })
             .filter { communities[it.key]!!.overResolutionLimit(graphWeight) }
             .forEach { (communityIndex, links) ->
                 val thisLouvain = Louvain(links)
