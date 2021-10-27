@@ -5,7 +5,7 @@ Louvain algorithm is a greedy optimization method for community detection introd
 
 ## Algorithm
 
-Algorithm is optimizing modularity, which is computed as follows:
+Algorithm is optimizing modularity, which is computed as follows:  
 ![equation](https://latex.codecogs.com/gif.latex?Q&space;=&space;\frac{1}{2m}\sum\limits_{ij}\bigg[A_{ij}&space;-&space;\frac{k_i&space;k_j}{2m}\bigg]\delta&space;(c_i,c_j))  
 Where  
 ![Aij](https://latex.codecogs.com/gif.latex?\large&space;A_{ij}) represents the edge weight between nodes i and j;  
@@ -13,7 +13,7 @@ Where
 to nodes i and j;  
 ![m](https://latex.codecogs.com/gif.latex?\large&space;m) is the sum of all the edge weights in the graph;  
 ![c](https://latex.codecogs.com/gif.latex?\large&space;c_i,&space;c_j) are the communities of the nodes i and j;  
-![delta](https://latex.codecogs.com/gif.latex?\large&space;\delta&space;(x,y)=&space;1\&space;\text{if}&space;\&space;x=y,&space;0&space;\&space;\text{otherwise}).
+![delta](https://latex.codecogs.com/gif.latex?\large&space;\delta&space;(x,y)) is 1 if arguments are equal, 0 otherwise.
 
 At the first step, each node gets assigned to its own community. At each step the algorithm tries to move each node to a 
 community which fits the node best, based on modularity change caused by this move. This process is repeated for all 
